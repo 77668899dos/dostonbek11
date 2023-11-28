@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container p-5">
+    <div class="col-lg-8">
+        <div class="offset-lg-2">
+            <div class="card p-5">
+                <h5 class="card-title">Ro'yxatdan o'tish</h5>
+                {% include 'components/msg.html' %}
+
+<form method="post" enctype="multipart/form-data" action="{% url 'register' %}">
+    {% csrf_token %}
+  <div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input type="email" name="email" class="form-control"  aria-describedby="emailHelp">
+  </div>
+    <div class="mb-3">
+    <label class="form-label">Username</label>
+    <input type="text" name="username" class="form-control"  aria-describedby="emailHelp">
+  </div>
+    <div class="form-group ">
+        <select name="user_type" id="">
+            <option value="">--status tanlang--</option>
+            <option value="1">Admin</option>
+            <option value="2">Ustoz</option>
+            <option value="3">Student</option>
+        </select>
+    </div>
+  <div class="mb-3">
+    <label  class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" >
+  </div>
+    <div class="mb-3">
+    <label  class="form-label">Rasm</label>
+    <input type="file" name="profile_pic" class="form-control" >
+  </div>
+    <div class="mb-3">
+    <label class="form-label">Confirm Password</label>
+    <input type="password" name="confim_password" class="form-control" >
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+                </div>
+      </div>
+    </div>
+</div>
+{% endblock %}

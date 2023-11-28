@@ -1,0 +1,28 @@
+{% extends 'admin/index.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="clearfix">
+    <div class="col-6-lg-6 mt-3">
+        <div class="card-4">
+
+            <h2>Kurs qo`shish</h2>
+
+            <div class="card-body card-block">
+                <form action="{% url 'add_course' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="">Kurs nomi</label>
+                        <input type="text" name="course_name" placeholder="Kurs nomi..." required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Kurs qo'shish</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+{% endblock %}

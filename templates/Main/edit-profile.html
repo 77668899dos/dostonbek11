@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+            <div class="container">
+                <div class="row d-flex justify-contnet-center">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                        <div class="single-services text-center mb-30">
+        <h1 class="text-center">Akkaunt</h1>
+            <h5 class="card-title">Profil haqida</h5>
+               <form method="post" action=" {% url 'updateProfile' %}">
+    {% csrf_token %}
+  <div class="mb-3">
+    <label class="form-label">ID</label>
+    <input type="hidden" name="id" value="{{ user.id }}" class="form-control"  aria-describedby="emailHelp">
+  </div><div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input type="email" name="email" value="{{ user.email }}" class="form-control"  aria-describedby="emailHelp">
+  </div>
+    <div class="mb-3">
+    <label class="form-label">Username</label>
+    <input type="text" name="username" value="{{ user.username }}" class="form-control"  aria-describedby="emailHelp">
+  </div>
+                   <div class="mb-3">
+    <label class="form-label">Ismi</label>
+    <input type="text" name="first_name" value="{{ user.first_name }}" class="form-control"  aria-describedby="emailHelp">
+  </div>
+                   <div class="mb-3">
+    <label class="form-label">Familiyasi</label>
+    <input type="text" name="last_name" value="{{ user.last_name }}" class="form-control"  aria-describedby="emailHelp">
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Yangilash</button>
+</form>
+
+    </div>
+</div>
+</div>
+</div>
+
+{% endblock %}

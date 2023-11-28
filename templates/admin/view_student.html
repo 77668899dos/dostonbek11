@@ -1,0 +1,68 @@
+{% extends 'admin/index.html' %}
+{% block content %}
+
+
+ <div class="content">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">O'quvchilar ro'yxati</strong>
+                                <a class="btn btn-primary" href="{% url 'add_student' %}">O'quvchi qo'shish</a>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Familiya Ism</th>
+                                            <th>Rasm</th>
+                                            <th>Kurs</th>
+                                            <th>Kurs vaqti</th>
+                                            <th>Email</th>
+                                            <th>Jinsi</th>
+                                            <th>Manzil</th>
+                                            <th>Xarakatlar</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in student %}
+                                        <tr>
+                                            <td>{{ i.id }}</td>
+                                            <td>{{ i.admin.first_name }}</td>
+                                            <td>
+                                                <img style="object-fit:cover;" width="150" height="70" src="/media/{{i.admin.profile_pic}}" alt="">
+                                               </td>
+                                            <td>{{ i.course_id.name }}</td>
+                                            <td>{{ i.session_id.sesstion_start }} - {{ i.session_id.sesstion_end }}</td>
+                                            <td>{{ i.admin.email}}</td>
+                                            <td>{{ i.gender }}</td>
+                                            <td>{{ i.address }}</td>
+                                            <td>
+                                                <a></a>
+                                                <form method="post" action="">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn btn-outline-success"><i class="fa fa-edit" ></i></button>
+                                                </form>
+                                                <br>
+
+                                                <a id="delete" href="{% url 'delete_student' i.admin.id %}" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="our-services servic-padding">
+            <div class="container">
+                <div class="row d-flex justify-contnet-center">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                        <div class="single-services text-center mb-30">
+        <h1 class="text-center">Akkaunt</h1>
+            <h5 class="card-title">Profil haqida</h5>
+            <div class="card-body">
+                <p class="card-text"> Login: {{ user.username}} </p>
+                <p class="card-text"> Email: {{ user.email}} </p>
+                <p class="card-text"> Ismi: {{ user.first_name}} </p>
+                <p class="card-text"> Familiyasi: {{ user.last_name}} </p>
+            </div>
+                            <a href="{% url 'editProfile' %}" class="btn btn-sm btn-primary">Tahrirlash</a>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}
